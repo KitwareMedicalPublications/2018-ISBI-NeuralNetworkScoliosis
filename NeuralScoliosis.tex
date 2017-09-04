@@ -1,0 +1,56 @@
+\documentclass{llncs}
+%
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{mwe}
+\usepackage{subfig}
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+%
+\begin{document}
+%
+\frontmatter
+%
+\pagestyle{headings}
+\addtocmark{Neural Scoliosis}
+\title{Scoliosis Screening using Self Contained Ultrasound and Neural Networks}
+\titlerunning{Scoliosis Screening}
+\author{Hastings Greer \and Stephen Aylward \and Sam Gerber \and Matt McCormick \and Deepak Chittajallu \and Neal Siekierski }
+\institute{Kitware Inc, Carrboro NC 27510, USA}
+%
+\mainmatter
+\maketitle
+
+\begin{abstract}
+We aim to diagnose scoliosis using a self contained ultrasound device that will not require expert operation. The device will detect the angle between the device and the spine using a neural network, and measure the angle between the device and vertical using an off the shelf IMU. The difference between these values will produce a plot of the spine deviation from vertical during the scan, and the extrema of this plot will yield the Cobb angle.
+\end{abstract}
+
+
+\section{Motivation}
+Currently scoliosis diagnosis and tracking requires either X-Ray imaging, which, while very accurate, involves radiation and is impractical for in school screening, or visual inspection, which requires training, is subjective, and requires an X-ray for confirmation. We hope to replace both of these using a hand-held ultrasound wand.
+
+
+\section{Training Data}
+Our initial study was conducted on 
+
+
+
+
+\section*{Acknowledgments}
+This work was funded, in part, by the following grants.
+\begin{itemize}
+	\item NIH/NIBIB: In-field FAST procedure support and automation (R43EB016621) 
+	\item NIH/NIGMS/NIBIB: Slicer+PLUS: Collaborative, open-source software for ultrasound analysis (R01EB021396)
+\end{itemize}
+
+%
+% ---- Bibliography ----
+%
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+
+
+\end{document}
+
