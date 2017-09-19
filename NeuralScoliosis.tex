@@ -27,11 +27,19 @@ We aim to diagnose scoliosis using a self contained ultrasound device that will 
 
 
 \section{Motivation}
-Currently scoliosis diagnosis and tracking requires either X-Ray imaging, which, while very accurate, involves radiation and is impractical for in school screening, or visual inspection, which requires training, is subjective, and requires an X-ray for confirmation. We hope to replace both of these using a hand-held ultrasound wand.
+Currently scoliosis diagnosis and tracking requires either X-Ray imaging, which, while very accurate, involves radiation and is impractical for in school screening, or visual inspection, which requires training, is subjective, and requires an X-ray for confirmation. There is extensive research into replacing these modalities with ultrasound, to reduce costs and radiation dose. However, existing work relies on finding landmarks in tracked ultrasound data, which is so far unreliable, and requires expensive and difficult to use tracking equipment. Furthermore, these systems do not provide real time guidance to the operator, meaning that they require training to capture usable scans. 
 
+\section{Strategy}
+Instead of going through an intermediate step such as a reconstructed volume, coordinates of landmarks, or a registration to an atlas, we train our network directly on the correspondence between raw ultrasound video and the angle between the spine and the ultrasound probe. When combined with angle tracking data for the probe, which can be obtained in the standing position using an Inertial measurement unit instead of an external tracker, this is sufficient to determine a plot of the angle of the spine along the back. Although this is not sufficient to determine the angle of any particular vertebra, it is sufficient to determine the angles of the extremal vertebrae, which is all that is needed to compute the Cobb Angle.
 
 \section{Training Data}
-Our initial study was conducted on 
+Our training data comes from ultrasound sequences taken of a model spine immersed in water. The orientation and position of the ultrasound probe is measured using an optical tracker, and the model spine is scanned while straightened. Then, the angle of the probe with respect to the spine is directly related to the angle of the probe in world space. For testing, images are acquired in the same way, but in a separate session. These images are used as B-mode, and scaled down to 100x100.
+
+\section{Network Architecture}
+
+\section{Results}
+
+
 
 
 
