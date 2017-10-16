@@ -98,21 +98,39 @@ The input training data comes from ultrasound image sequences taken of a model s
 \end{figure}
 
 
-Our system’s neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network is used to pre-process each frame, and a second fully connected network processes a sliding window of 41 frames by looking at the values of the last layer of the convolutional network.
+Our system’s neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network has its last layer removed, and the remainder is used to pre-process each frame. Finally, a second fully connected network processes a sliding window of 41 pre-processed frames, stacked into an unstructured vector.
 
 \begin{table}[ht]
 \caption{Convolutional Network}
-\begin{tabular}{c c c c}
+\begin{tabular}{c c c c c}
 \hline \\
-Type & \# Filters & Stride & Activation \\
+Type & \# Filters & Stride & Activation & Rate \\
 \hline
 Convolution & 32 & 3x3 & Relu \\
 Max Pooling &    & 2x2 &      \\
-Convolution & 32 & 3x3 & Relu \\
+Convolution & 64 & 3x3 & Relu \\
 Max Pooling &    & 2x2 &      \\
-Convolution & 32 & 3x3 & Relu \\
+Convolution & 64 & 3x3 & Relu \\
 Max Pooling &    & 2x2 &      \\
-Fully Connected & & 2048 & Relu \\
+Convolution &128 & 3x3 & Relu \\
+Convolution &256 & 3x3 & Relu \\
+Fully Connected & 512 & & Relu \\
+Dropout & & & & 0.5 \\
+Fully Connected & 512 & & Relu \\
+Dropout & & & & 0.5 \\
+Fully Connected & 1 & & tanh \\
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{Sliding Window Network}
+\begin{tabular}{c c c}
+\hline \\
+Type & \# Filters & Activation \\
+\hline
+Fully Connected & 1024  & Relu \\
+Fully Connected & 1024  & Relu \\
+Fully Connected & 1 &  tanh \\
 \end{tabular}
 \end{table}
 
