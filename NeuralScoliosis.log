@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.16)  29 AUG 2017 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6400 64-bit) (preloaded format=pdflatex 2017.8.15)  16 OCT 2017 15:13
 entering extended mode
 **./NeuralScoliosis.tex
 (NeuralScoliosis.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
+Babel <3.12> and hyphenation patterns for 72 language(s) loaded.
 (llncs.cls
 Document Class: llncs 2015/06/24 v2.20 
  LaTeX document class for Lecture Notes in Computer Science
@@ -130,14 +130,14 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -148,25 +148,17 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count116
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen125
 \Gin@req@width=\dimen126
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mwe\mwe.sty"
+("C:\Users\aylward\AppData\Local\Programs\MiKTeX 2.9\tex\latex\mwe\mwe.sty"
 Package: mwe 2012/05/15 v0.3 Package to support minimal working examples (MWE)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count117
+\c@lips@count=\count116
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\blindtext\blindtext.sty"
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
@@ -174,29 +166,29 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count118
-\c@Blindtext=\count119
-\c@blind@countparstart=\count120
-\blind@countxx=\count121
-\blindtext@numBlindtext=\count122
-\blind@countyy=\count123
-\c@blindlist=\count124
-\c@blindlistlevel=\count125
-\c@blindlist@level=\count126
-\blind@listitem=\count127
-\c@blind@listcount=\count128
-\c@blind@levelcount=\count129
-\blind@mathformula=\count130
-\blind@Mathformula=\count131
-\c@blind@randomcount=\count132
-\c@blind@randommax=\count133
-\c@blind@pangramcount=\count134
-\c@blind@pangrammax=\count135
+\c@blindtext=\count117
+\c@Blindtext=\count118
+\c@blind@countparstart=\count119
+\blind@countxx=\count120
+\blindtext@numBlindtext=\count121
+\blind@countyy=\count122
+\c@blindlist=\count123
+\c@blindlistlevel=\count124
+\c@blindlist@level=\count125
+\blind@listitem=\count126
+\c@blind@listcount=\count127
+\c@blind@levelcount=\count128
+\blind@mathformula=\count129
+\blind@Mathformula=\count130
+\c@blind@randomcount=\count131
+\c@blind@randommax=\count132
+\c@blind@pangramcount=\count133
+\c@blind@pangrammax=\count134
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+("C:\Users\aylward\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfig\subfig.st
+y"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
@@ -221,19 +213,19 @@ Package caption Info: \@makecaption = \long macro:#1#2->\small \vskip \abovecap
 tionskip \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsize {\b
 fseries #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@
 tempboxa \hfil }\fi \vskip \belowcaptionskip .
-\c@ContinuedFloat=\count136
+\c@ContinuedFloat=\count135
 )
-\c@KVtest=\count137
+\c@KVtest=\count136
 \sf@farskip=\skip45
 \sf@captopadj=\dimen134
 \sf@capskip=\skip46
 \sf@nearskip=\skip47
-\c@subfigure=\count138
-\c@subfigure@save=\count139
-\c@lofdepth=\count140
-\c@subtable=\count141
-\c@subtable@save=\count142
-\c@lotdepth=\count143
+\c@subfigure=\count137
+\c@subfigure@save=\count138
+\c@lofdepth=\count139
+\c@subtable=\count140
+\c@subtable@save=\count141
+\c@lotdepth=\count142
 \sf@top=\skip48
 \sf@bottom=\skip49
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgfplots\pgfplotstable.sty"
@@ -287,10 +279,10 @@ x"
 \pgf@yc=\dimen144
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count144
-\c@pgf@countb=\count145
-\c@pgf@countc=\count146
-\c@pgf@countd=\count147
+\c@pgf@counta=\count143
+\c@pgf@countb=\count144
+\c@pgf@countc=\count145
+\c@pgf@countd=\count146
 \t@pgf@toka=\toks23
 \t@pgf@tokb=\toks24
 \t@pgf@tokc=\toks25
@@ -309,8 +301,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
 ex"
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count148
-\pgfsyssoftpath@bigbuffer@items=\count149
+\pgfsyssoftpath@smallbuffer@items=\count147
+\pgfsyssoftpath@bigbuffer@items=\count148
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
 ex"
@@ -340,7 +332,7 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
 \pgfmath@dimen=\dimen145
-\pgfmath@count=\count150
+\pgfmath@count=\count149
 \pgfmath@box=\box55
 \pgfmath@toks=\toks26
 \pgfmath@stack@operand=\toks27
@@ -364,7 +356,7 @@ ex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarit
 hmetics.code.tex")))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count151
+\c@pgfmathroundto@lastzeros=\count150
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
 "
@@ -402,7 +394,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box56
 \pgf@hbox=\box57
 \pgf@layerbox@main=\box58
-\pgf@picture@serial@count=\count152
+\pgf@picture@serial@count=\count151
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
 de.tex"
@@ -435,7 +427,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen169
-\pgf@sys@shading@range@num=\count153
+\pgf@sys@shading@range@num=\count152
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
 x"
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -492,7 +484,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
 code.tex"
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count154
+\pgf@plot@mark@count=\count153
 \pgfplotmarksize=\dimen174
 )
 \tikz@lastx=\dimen175
@@ -505,18 +497,18 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box62
 \tikz@tempbox=\box63
 \tikz@tempbox@bg=\box64
-\tikztreelevel=\count155
-\tikznumberofchildren=\count156
-\tikznumberofcurrentchild=\count157
-\tikz@fig@count=\count158
+\tikztreelevel=\count154
+\tikznumberofchildren=\count155
+\tikznumberofcurrentchild=\count156
+\tikz@fig@count=\count157
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count159
-\pgfmatrixcurrentcolumn=\count160
-\pgf@matrix@numberofcolumns=\count161
+\pgfmatrixcurrentrow=\count158
+\pgfmatrixcurrentcolumn=\count159
+\pgf@matrix@numberofcolumns=\count160
 )
-\tikz@expandcount=\count162
+\tikz@expandcount=\count161
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
 librarytopaths.code.tex"
@@ -528,8 +520,8 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 \t@pgfplots@tokb=\toks32
 \t@pgfplots@tokc=\toks33
 \pgfplots@tmpa=\dimen181
-\c@pgfplots@coordindex=\count163
-\c@pgfplots@scanlineindex=\count164
+\c@pgfplots@coordindex=\count162
+\c@pgfplots@scanlineindex=\count163
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\sys\pgfplotssysgeneric.code.
 tex"))
@@ -545,7 +537,7 @@ Package pgfplots: loading complementary arithmetics for your pgf version...
 fsupp_pgflibraryfpu.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\oldpgfcompatib\pgfplotsoldpg
 fsupp_pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count165
+\c@pgfmathroundto@lastzeros=\count164
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\util\pgfplotsutil.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotslistst
@@ -554,13 +546,13 @@ ructure.code.tex")
 ructureext.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotsarray.
 code.tex"
-\c@pgfplotsarray@tmp=\count166
+\c@pgfplotsarray@tmp=\count165
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotsmatrix
 .code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\numtable\pgfplotstableshared
 .code.tex"
-\c@pgfplotstable@counta=\count167
+\c@pgfplotstable@counta=\count166
 \t@pgfplotstable@a=\toks34
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotsdeque.
@@ -573,7 +565,7 @@ e.tex"))
 tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\libs\pgflibrarypgfplots.surf
 shading.code.tex"
-\c@pgfplotslibrarysurf@no=\count168
+\c@pgfplotslibrarysurf@no=\count167
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\sys\pgflibrarypgfplots.surfs
 hading.pgfsys-pdftex.def")))
@@ -605,7 +597,7 @@ librarydecorations.code.tex"
 \pgfdecoratedinputsegmentcompleteddistance=\dimen184
 \pgfdecoratedinputsegmentremainingdistance=\dimen185
 \pgf@decorate@distancetomove=\dimen186
-\pgf@decorate@repeatstate=\count169
+\pgf@decorate@repeatstate=\count168
 \pgfdecorationsegmentamplitude=\dimen187
 \pgfdecorationsegmentlength=\dimen188
 )
@@ -619,7 +611,7 @@ ecorations.pathmorphing.code.tex"))
 librarydecorations.pathreplacing.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\decorations\pgflibraryd
 ecorations.pathreplacing.code.tex"))
-\pgfplots@numplots=\count170
+\pgfplots@numplots=\count169
 \pgfplots@xmin@reg=\dimen189
 \pgfplots@xmax@reg=\dimen190
 \pgfplots@ymin@reg=\dimen191
@@ -664,42 +656,32 @@ LaTeX Font Info:    ... okay on input line 10.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count171
+\scratchcounter=\count170
 \scratchdimen=\dimen197
 \scratchbox=\box66
-\nofMPsegments=\count172
-\nofMParguments=\count173
+\nofMPsegments=\count171
+\nofMParguments=\count172
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count174
+\MPscratchCnt=\count173
 \MPscratchDim=\dimen198
-\MPnumerator=\count175
-\makeMPintoPDFobject=\count176
+\MPnumerator=\count174
+\makeMPintoPDFobject=\count175
 \everyMPtoPDFconversion=\toks37
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
@@ -708,15 +690,32 @@ Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
@@ -732,38 +731,66 @@ your preamble.
  on input line 10.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 22.
+(Font)              <7> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 22.
-
-Overfull \hbox (9.18166pt too wide) in paragraph at lines 42--43
-[]\OT1/cmr/m/n/10 NIH/NIBIB: In-field FAST pro-ce-dure sup-port and au-toma-tio
-n (R43EB016621) 
- []
-
-(NeuralScoliosis.bbl [1
-
+(Font)              <5> on input line 23.
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ° in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+[1
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
-[2] (NeuralScoliosis.aux) ) 
+
+{C:/Users/aylward/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ° in font cmr10!
+
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 55.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 55.
+<Figures/SampleInput.png, id=16, 254.9525pt x 252.945pt>
+File: Figures/SampleInput.png Graphic file (type png)
+<use Figures/SampleInput.png>
+Package pdftex.def Info: Figures/SampleInput.png  used on input line 57. on inp
+ut line 57.
+Package pdftex.def Info: Requested size: 157.73434pt x 156.49014pt on input lin
+e 57.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3 <./Figures/SampleInput.png>]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+ (NeuralScoliosis.bbl [4]) [5] (NeuralScoliosis.aux) ) 
 Here is how much of TeX's memory you used:
- 23629 strings out of 493323
- 610559 string characters out of 3139066
- 896178 words of memory out of 3000000
- 26783 multiletter control sequences out of 15000+200000
- 6110 words of font info for 22 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 69i,6n,98p,736b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on NeuralScoliosis.pdf (2 pages, 93495 bytes).
+ 23600 strings out of 493352
+ 610293 string characters out of 3139706
+ 890270 words of memory out of 3000000
+ 26738 multiletter control sequences out of 15000+200000
+ 7634 words of font info for 27 fonts, out of 3000000 for 9000
+ 1127 hyphenation exceptions out of 8191
+ 69i,12n,98p,996b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb
+>
+Output written on NeuralScoliosis.pdf (5 pages, 125781 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
+ 48 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
