@@ -98,7 +98,24 @@ The input training data comes from ultrasound image sequences taken of a model s
 \end{figure}
 
 
-Our system’s neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network is used to pre-process each frame, and a second fully connected network processes stacks of 41 frames by looking at the values of the last layer of the convolutional network. 
+Our system’s neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network is used to pre-process each frame, and a second fully connected network processes a sliding window of 41 frames by looking at the values of the last layer of the convolutional network.
+
+\begin{table}[ht]
+\caption{Convolutional Network}
+\begin{tabular}{c c c}
+\hline
+Type & \# Filters & Stride & Activation
+\hline
+Convolution & 32 & 3x3 & Relu \\
+Max Pooling &    & 2x2 &      \\
+Convolution & 32 & 3x3 & Relu \\
+Max Pooling &    & 2x2 &      \\
+Convolution & 32 & 3x3 & Relu \\
+Max Pooling &    & 2x2 &      \\
+Fully Connected & & 2048 & Relu \\
+\end{tabular}
+\end{table}
+
 Once the network has been trained, the vertebrae-to-probe angle given by the neural network is subtracted from the probe-to-vertical angle given by the accelerometer embedded in the ultrasound probe. The resulting vertebrae-to-vertical angle sequence is then smoothed with a median filter, and the difference between the maximum and minimum estimated vertebrae-to-vertical angles is the computed Cobb angle.   
 
 \section{Experiment and Results}
