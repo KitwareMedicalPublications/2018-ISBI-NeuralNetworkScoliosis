@@ -16,9 +16,13 @@
 %
 % Single address.
 % ---------------
-\name{Hastings Greer, Sam Gerber, Marc Niethammer, Roland Kwitt, Matt McCormick, Deepak Chittajallu, Neal Siekierski, Stephen Aylward }
+\makeatletter
+\def\@name{ \emph{Hastings Greer, Sam Gerber, Marc Niethammer, Roland Kwitt},  \\ \emph{Matt McCormick, Deepak Chittajallu, Neal Siekierski, Stephen Aylward}}
+\makeatother
+%\name{Hastings Greer  Sam Gerber, Marc Niethammer, Roland Kwitt,
+%Matt McCormick, Deepak Chittajallu, Neal Siekierski, Stephen Aylward }
 \address{Kitware Inc\\
-    Carrboro NC 27510, USA}
+Carrboro NC 27510, USA}
 %
 % For example:
 % ------------
@@ -56,25 +60,25 @@ We aim to diagnose scoliosis using a self contained ultrasound device that does 
 \end{abstract}
 %
 \begin{keywords}
-Point-of-Care Ultrasound, Computer-Aided Diagnosis
+Point-of-Care Ultrasound, Computer Aided Diagnosis
 \end{keywords}
 %
 \section{Introduction}
 \label{sec:intro}
 
 Scoliosis is a complex three-dimensional deformity characterized primarily by lateral curvature and rotational deviation of the spine. Different types of scoliosis exist, including congenital, neuromuscular, and syndromic; and the most common is idiopathic, which affects otherwise healthy children. The prevalence of idiopathic scoliosis ranges from 0.5\% to 3\% \cite{Mor06} with 2-4\% of children ages 6 to 14 having pathologic spinal curves greater than 20\%. The most significant risk factor for curve progression is growth, with children entering their adolescent growth spurts at particular risk. While children and adults can live relatively symptom free with small scoliotic curves, as these curves increase in size, the risk of health problems increases concurrently. Surgery is typically recommended for curves over 50$^\circ$. With curves over 75-80$^\circ$, significant disability due to restrictive pulmonary and cardiac disease can occur \cite{Hae06}.
-
+"
 Our system is targeting scoliosis screening the general population and quantitatively monitoring scoliosis progression in known cases. As such, our system is intended to be used in the field: at schools, in the offices of general practitioners, and in the offices of pediatric orthopedic surgeons.
 
 \subsection{Screening}
 \label{ssec:screen}
-Many states in the USA mandate school screening for scoliosis. In general, a scoliometer is used to assess the rotational deformity of a child's back. Children with scoliometer measurements greater than 5$^\circ$ are referred for further evaluation. X-ray imaging is then typically used. Unfortunately, a scoliometer is quite insensitive and non-specific. It has been reported that the positive predictive value of a scoliometer reading of 5$^\circ$ to detect real scoliosis is only 4\% [Yawn 1999]. This results in a large number of unnecessary referrals to physicians and unneeded X-rays of developing children.
+Many states in the USA mandate school screening for scoliosis. In general, a scoliometer is used to assess the rotational deformity of a child's back. Children with scoliometer measurements greater than 5$^\circ$ are referred for further evaluation. X-ray imaging is then typically used. Unfortunately, a scoliometer is quite insensitive and non-specific. It has been reported that the positive predictive value of a scoliometer reading of 5$^\circ$ to detect real scoliosis is only 4\% \cite{Yaw99}. This results in a large number of unnecessary referrals to physicians and unneeded X-rays of developing children.
 
 \subsection{Monitoring}
 \label{ssec:Monitoring}
- The most common method for monitoring scoliosis is to measure the spinal curvature using Cobb's method [Cobb 1948] from posteroanterior (PA) X-Ray images. A minimum of 10$^\circ$ of Cobb angle is needed to differentiate scoliosis.  However, radiographs are costly and expose children to potentially harmful ionizing radiation. It is estimates that children with scoliosis progression undergo three to seven x-ray images per year, and such radiation exposure increases the risk of leukemia, lung cancer, and breast cancer. [Knott 2014]
+ The most common method for monitoring scoliosis is to measure the spinal curvature using Cobb's method \cite{Cob48} from posteroanterior (PA) X-Ray images. A minimum of 10$^\circ$ of Cobb angle is needed to differentiate scoliosis.  However, radiographs are costly and expose children to potentially harmful ionizing radiation. It is estimates that children with scoliosis progression undergo three to seven x-ray images per year, and such radiation exposure increases the risk of leukemia, lung cancer, and breast cancer. \cite{Kno14}
  
-There has been extensive research into replacing scoliometers and X-Ray imaging with computer-assisted ultrasound imaging systems to reduce costs, increase reliability, and eliminate the need for harmful radiation [Li2010, Chen 2012, Ungi 2014a].  However, most of the ultrasound research systems (1) require the use of external tracking equipment, (2) rely on the operator or an advanced algorithm to precisely locate key landmarks in the ultrasound data, and/or (3) do not provide real-time guidance to the operator, so the operators must still be trained to capture usable scans.  Great progress has been made to tackle each of these challenges, and promising results are being generated ([Chen 2012 and Ungi 2014] have reported approximately 2$^\circ$ difference compared to radiographs), but we have chosen to explore a self-contained ultrasound-based solution that eliminates the need for external tracking, landmark identification, or extensive operator training.
+There has been extensive research into replacing scoliometers and X-Ray imaging with computer-assisted ultrasound imaging systems to reduce costs, increase reliability, and eliminate the need for harmful radiation \cite{Li10, Che13, Ung14a}.  However, most of the ultrasound research systems (1) require the use of external tracking equipment, (2) rely on the operator or an advanced algorithm to precisely locate key landmarks in the ultrasound data, and/or (3) do not provide real-time guidance to the operator, so the operators must still be trained to capture usable scans.  Great progress has been made to tackle each of these challenges, and promising results are being generated (\cite{Che13, Ung14a} have reported approximately 2$^\circ$ difference compared to radiographs), but we have chosen to explore a self-contained ultrasound-based solution that eliminates the need for external tracking, landmark identification, or extensive operator training.
 
 Our system is based on ultrasound imaging, but an ultrasound image is never presented to the operator.  The operator must be trained regarding how to apply sufficient acoustic gel and how to move the device so as to follow the spine of a child, but the embedded image analysis algorithms and the embedded graphic display provide simple feedback to the operator to ensure that sufficient acoustic gel has been used and that the probe remains over the spine as it is moved.  After a sweep has been completed, the device displays the estimated Cobb angle.
 
@@ -164,7 +168,7 @@ to predict the lateral position of the probe with respect to the spine from the 
 \centering
 \begin{tabular}{cc}
 \centering
-\includegraphics[height=7.5cm,keepaspectratio]{Guidance}
+\includegraphics[height=7.4cm,keepaspectratio]{Guidance}
 \end{tabular}
 \caption{A neural network infers whether the operator needs to move the probe to the left or right to stay centered on the spine
 }
@@ -181,17 +185,35 @@ Finally, we anticipate that better training data could be obtained by annotating
 
 We aim to operate this software on our planned hand held, self contained ultrasound device. This device, which runs off of an Intel compute stick and windows 10, will enable an extremely simple and fast workflow, where the operator sweeps the device over the patientâ€™s back, following the onscreen arrows to keep centered on the spine, and then reads the cobb angle off of the screen. Because the device runs the same windows version as the computers we are currently running our research on, we do not anticipate any difficulty in porting to the new platform.
 
-
-\section{REFERENCES}
-\label{sec:ref}
-
-List and number all bibliographical references at the end of the paper.  The references can be numbered in alphabetic order or in order of appearance in the document.  When referring to them in the text, type the corresponding reference number in square brackets as shown at the end of this sentence \cite{C2}.
-
-% References should be produced using the bibtex program from suitable
-% BiBTeX files (here: strings, refs, manuals). The IEEEbib.bst bibliography
-% style file from IEEE produces unsorted bibliography list.
-% -------------------------------------------------------------------------
 \bibliographystyle{IEEEbib}
+\begin{thebibliography}{}
+%
+\bibitem[1]{Mor06}
+RT. Morrissy, and SL. Weinstein, “Idiopathic Scoliosis in Lovell and Winter’s Pediatric Orthopedics,” Lippincott Williams and Wilkins, Philadelphia, 2006, pp. 694-762.
+
+\bibitem[2]{Hae06}
+M. Haefeli, A. Elfering, R. Kilian, K. Min and N. Boos "Nonoperative treatment for adolescent idiopathic scoliosis: a 10- to 60-year follow-up with special reference to health-related quality of life." Spine (Phila Pa 1976), 31(3): 355-66; discussion 367, 2006
+
+\bibitem[3]{Yaw99}
+BP. Yawn, RA. Yawn, D. Hodge, M. Kurland, WJ. Shaughnessy, D. Llstrup, and SJ. Jacobsen, "A population based study of school scoliosis screening." JAMA, 282(15): 1427-32, 1999.
+
+\bibitem[4]{Cob48}
+J. Cobb, “Outline for the Study of Scoliosis,” Instructional Course Lectures, Vol. 5, 1948, pp. 261-275. 
+
+\bibitem[5]{Kno14}
+P. Knott, E. Pappo, M. Cameron, JC. deMauroy, et al., "SOSORT 2012 consensus paper: reducing x-ray exposure in pediatric patients with scoliosis" Scoliosis 2014, 9:4
+
+\bibitem[6]{Li10}
+M. Li, C. Cheng, M. Ying, et al. "Applications of 3D Ultrasound in Assisting the Fitting Procedure of Spinal Orthosis to Patients with Adolescent Idiopathic Scoliosis,” Studies in Health Technology and Informatics, Vol. 158, 2010, pp. 34-3
+
+\bibitem[7]{Che13}
+W. Chen, EH. Lou, P. Zhang, LH. Le, D. Hill. "Reliability of assessing the coronal curvature of children with scoliosis by using ultrasound images", Journal of Children's Orthopaedics, 7(6):521-9, Dec 2013
+
+\bibitem[8]{Ung14a}
+T. Ungi, F. King, M. Kempston, Z. Keri, A. Lasso, P. Mousavi, et al.  Spinal curvature measurement by tracked ultrasound snapshots. Ultrasound in Medicine and Biology. 40(2), 2014:447-54.
+
+\end{thebibliography}
+
 \bibliography{strings,refs}
 
 \end{document}
