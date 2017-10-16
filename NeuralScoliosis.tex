@@ -13,41 +13,76 @@
 %
 \pagestyle{headings}
 \addtocmark{Neural Scoliosis}
-\title{Scoliosis Screening using Self Contained Ultrasound and Neural Networks}
+ 
+\title{Scoliosis Screening and Monitoring using Self Contained Ultrasound and Neural Networks}
 \titlerunning{Scoliosis Screening}
-\author{Hastings Greer \and Stephen Aylward \and Sam Gerber \and Matt McCormick \and Deepak Chittajallu \and Neal Siekierski }
+\author{Hastings Greer \and Sam Gerber \and Marc Niethammer \and Roland Kwitt \and Matt McCormick \and Deepak Chittajallu \and Neal Siekierski \and Stephen Aylward }
 \institute{Kitware Inc, Carrboro NC 27510, USA}
 %
 \mainmatter
 \maketitle
 
 \begin{abstract}
-We aim to diagnose scoliosis using a self contained ultrasound device that will not require expert operation. The device will detect the angle between the device and the spine using a neural network, and measure the angle between the device and vertical using an off the shelf IMU. The difference between these values will produce a plot of the spine deviation from vertical during the scan, and the extrema of this plot will yield the Cobb angle.
+We aim to diagnose scoliosis using a self contained ultrasound device that does not require significant training to operate. The device knows its angle relative to vertical using an embedded inertial measurement unit, and it estimates its angle relative to a vertebrae using a neural network analysis of its ultrasound images.  The composition of those angles defines the angle of a vertebrae from vertical.  The maximum difference between vertebrae angles collected from a scan of a spine yields the Cobb angle measure that is used to quantify scoliosis severity. 
 \end{abstract}
 
 
-\section{Motivation}
-Currently scoliosis diagnosis and tracking requires either X-Ray imaging, which, while very accurate, involves radiation and is impractical for in school screening, or visual inspection, which requires training, is subjective, and requires an X-ray for confirmation. There is extensive research into replacing these modalities with ultrasound, to reduce costs and radiation dose. However, existing work relies on finding landmarks in tracked ultrasound data, which is so far unreliable, and requires expensive and difficult to use tracking equipment. Furthermore, these systems do not provide real time guidance to the operator, meaning that they require training to capture usable scans. 
-
-\section{Strategy}
-Instead of going through an intermediate step such as a reconstructed volume, coordinates of landmarks, or a registration to an atlas, we train our network directly on the correspondence between raw ultrasound video and the angle between the spine and the ultrasound probe. When combined with angle tracking data for the probe, which can be obtained in the standing position using an Inertial measurement unit instead of an external tracker, this is sufficient to determine a plot of the angle of the spine along the back. Although this is not sufficient to determine the angle of any particular vertebra, it is sufficient to determine the angles of the extremal vertebrae, which is all that is needed to compute the Cobb Angle.
-
-\section{Training Data}
-Our training data comes from ultrasound sequences taken of a model spine immersed in water. The orientation and position of the ultrasound probe is measured using an optical tracker, and the model spine is scanned while straightened. Then, the angle of the probe with respect to the spine is directly related to the angle of the probe in world space. For testing, images are acquired in the same way, but in a separate session. These images are used as B-mode, and scaled down to 100x100.
-
-\section{Network Architecture}
-
-\section{Results}
+\section{Introduction}
 
 
+Scoliosis is a complex three-dimensional deformity characterized primarily by lateral curvature and rotational deviation of the spine. Different types of scoliosis exist, including congenital, neuromuscular, and syndromic; and the most common is idiopathic, which affects otherwise healthy children. The prevalence of idiopathic scoliosis ranges from 0.5\% to 3\% [Morrissy 2006] with 2-4\% of children ages 6 to 14 having pathologic spinal curves greater than 20°. The most significant risk factor for curve progression is growth, with children entering their adolescent growth spurts at particular risk. While children and adults can live relatively symptom free with small scoliotic curves, as these curves increase in size, the risk of health problems increases concurrently. Surgery is typically recommended for curves over 50 degrees. With curves over 75-80 degrees, significant disability due to restrictive pulmonary and cardiac disease can occur [Haefeli 2006].
+
+Our system is targeting scoliosis screening the general population and quantitatively monitoring scoliosis progression in known cases. As such, our system is intended to be used in the field: at schools, in the offices of general practitioners, and in the offices of pediatric orthopedic surgeons.
+
+\subsection{Screening}
+ Many states in the USA mandate school screening for scoliosis. In general, a scoliometer is used to assess the rotational deformity of a child’s back. Children with scoliometer measurements greater than 5 degrees are referred for further evaluation. X-ray imaging is then typically used. Unfortunately, a scoliometer is quite insensitive and non-specific. It has been reported that the positive predictive value of a scoliometer reading of 5 degrees to detect real scoliosis is only 4% [Yawn 1999]. This results in a large number of unnecessary referrals to physicians and unneeded X-rays of developing children.
+
+\subsection{Monitoring}: The most common method for monitoring scoliosis is to measure the spinal curvature using Cobb's method [Cobb 1948] from posteroanterior (PA) X-Ray images. A minimum of 10 degrees of Cobb angle is needed to differentiate scoliosis.  However, radiographs are costly and expose children to potentially harmful ionizing radiation. It is estimates that children with scoliosis progression undergo three to seven x-ray images per year, and such radiation exposure increases the risk of leukemia, lung cancer, and breast cancer. [Knott 2014]
+
+There has been extensive research into replacing scoliometers and X-Ray imaging with computer-assisted ultrasound imaging systems to reduce costs, increase reliability, and eliminate the need for harmful radiation [Li2010, Chen 2012, Ungi 2014a].  However, most of the ultrasound research systems (1) require the use of external tracking equipment, (2) rely on the operator or an advanced algorithm to precisely locate key landmarks in the ultrasound data, and/or (3) do not provide real-time guidance to the operator, so the operators must still be trained to capture usable scans.  Great progress has been made to tackle each of these challenges, and promising results are being generated ([Chen 2012 and Ungi 2014] have reported ~2° difference compared to radiographs), but we have chosen to explore a self-contained ultrasound-based solution that eliminates the need for external tracking, landmark identification, or extensive operator training.
+
+Our system is based on ultrasound imaging, but an ultrasound image is never presented to the operator.  The operator must be trained regarding how to apply sufficient acoustic gel and how to move the device so as to follow the spine of a child, but the embedded image analysis algorithms and the embedded graphic display provide simple feedback to the operator to ensure that sufficient acoustic gel has been used and that the probe remains over the spine as it is moved.  After a sweep has been completed, the device displays the estimated Cobb angle.
+
+The methods section describes the image analysis and deep learning methods employed by our device.  The experiment section presents results using a spine phantom then indicate that our device can produce results that are more accurate than a scoliometer and nearly as accurate as X-ray imaging.  This paper concludes with a discussion of future steps for device research, development, and validation.
+
+\section{Methods}
+Instead of requiring challenging intermediate steps such as externally tracking an ultrasound probe using optical technologies, reconstructing an ultrasound volume from tracked 2D ultrasound images, determining the coordinates of key landmarks, or registering a volume to an atlas, our system directly estimates the angle between the spine and the ultrasound probe using a neural network. In combination with an internal inertial measurement unit (IMU) to report the angle between the ultrasound probe and vertical, our self-contained, hand-held unit bypasses the traditional intermediate steps and focuses on the measures to be made. The Cobb Angle is defined by the extrema of the estimated angles.
+
+The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100.
+
+\begin{figure}
+\centering
+\begin{tabular}{cc}
+\centering
+\includegraphics[height=5.5cm,keepaspectratio]{Figures/SampleInput}
+\end{tabular}
+\caption{A sample frame, as passed to the network
+}
+\end{figure}
 
 
+Our system’s neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network is used to pre-process each frame, and a second fully connected network processes stacks of 41 frames by looking at the values of the last layer of the convolutional network. 
+Once the network has been trained, the vertebrae-to-probe angle given by the neural network is subtracted from the probe-to-vertical angle given by the accelerometer embedded in the ultrasound probe. The resulting vertebrae-to-vertical angle sequence is then smoothed with a median filter, and the difference between the maximum and minimum estimated vertebrae-to-vertical angles is the computed Cobb angle.   
+
+\section{Experiment and Results}
+
+As a preliminary validation, we tested our network’s ability to deduce the angle of the ultrasound probe on images of a straight spine acquired while rotating the ultrasound probe as it moved down the spine.  This testing data was captured after (i.e., completely separate from) the training data and consisted of 10,000 images.  See Fig. 2.
+
+
+Figure 2. Graph of estimated and actual ultrasound probe angle as it is moved and rotated along a spine.  The neural network can estimate this angle using only the image data.  At transitions between vertebrae and at time step 3200, the angle measures temporarily degrade, but otherwise, the estimated and actual angles are within +/- 2 degrees.  The full system applies median filtering to these data to eliminate local irregularities.
+
+To validate the complete system, we manipulated the spine model to depict various Cobb angles / scoliosis severities.   We made physical measurements on the spine to define ground truth.  We then imaged those spines multiple times and used our system to estimate the Cobb angles from those data.  Those results are given in Fig. 3.
+
+
+Figure 3. 
+
+\section{Discussion and Future Work}
+We aim to operate this software on our planned hand held, self contained ultrasound device. This device, which runs off of an Intel compute stick and windows 10, will enable an extremely simple and fast workflow, where the operator sweeps the device over the patient’s back, following the onscreen arrows to keep centered on the spine, and then reads the cobb angle off of the screen. Because the device runs the same windows version as the computers we are currently running our research on, we do not anticipate any great difficulty in porting to the new platform
 
 
 \section*{Acknowledgments}
 This work was funded, in part, by the following grants.
 \begin{itemize}
-	\item NIH/NIBIB: In-field FAST procedure support and automation (R43EB016621) 
 	\item NIH/NIGMS/NIBIB: Slicer+PLUS: Collaborative, open-source software for ultrasound analysis (R01EB021396)
 \end{itemize}
 
@@ -61,4 +96,7 @@ This work was funded, in part, by the following grants.
 
 
 \end{document}
+
+
+
 
