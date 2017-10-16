@@ -142,9 +142,15 @@ As a preliminary validation, we tested our network’s ability to deduce the ang
 
 \begin{figure}
 \centering
-\begin{tabular}{cc}
+\begin{tabular}{c}
 \centering
-\includegraphics[height=5.5cm,keepaspectratio]{NetworkOutput}
+\includegraphics[height=5.5cm,keepaspectratio]{NetworkOutput} 
+
+\end{tabular}
+\begin{tabular}{c}
+\centering
+
+\includegraphics[height=5.5cm,keepaspectratio]{MedFilterNetworkOutput}
 \end{tabular}
 \caption{Graph of estimated and actual ultrasound probe angle as it is moved and rotated along a spine.  The neural network can estimate this angle using only the image data.  At transitions between vertebrae and at time step 4300, the angle measures temporarily degrade, but otherwise, the estimated and actual angles are within +/- 2 degrees.  The full system applies median filtering to these data to eliminate local irregularities.
 }
