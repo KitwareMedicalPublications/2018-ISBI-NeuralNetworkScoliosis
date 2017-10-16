@@ -89,7 +89,7 @@ The methods section describes the image analysis and deep learning methods emplo
 
 Instead of requiring challenging intermediate steps such as externally tracking an ultrasound probe using optical technologies, reconstructing an ultrasound volume from tracked 2D ultrasound images, determining the coordinates of key landmarks, or registering a volume to an atlas, our system directly estimates the angle between the spine and the ultrasound probe using a neural network. In combination with an internal inertial measurement unit (IMU) to report the angle between the ultrasound probe and vertical, our self-contained, hand-held unit bypasses the traditional intermediate steps and focuses on the measures to be made. The Cobb Angle is defined by the extrema of the estimated angles.
 
-The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100.
+The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100, and augmented by flipping over the vertical axis.
 
 \begin{figure}
 \centering
@@ -142,7 +142,7 @@ Once the network has been trained, the vertebrae-to-probe angle given by the neu
 
 \section{Experiment and Results}
 
-As a preliminary validation, we tested our network’s ability to deduce the angle of the ultrasound probe on images of a straight spine acquired while rotating the ultrasound probe as it moved down the spine.  This testing data was captured after (i.e., completely separate from) the training data and consisted of 10,000 images.  See Fig. 2.
+As a preliminary validation, we tested our network’s ability to deduce the angle of the ultrasound probe on images of a straight spine acquired while rotating the ultrasound probe as it moved down the spine.  This testing data was captured after (i.e., completely separate from) the training data and consisted of 10,000 images. Our results on this data are shown in fig. 2. For the smoothed data, the mean error is 2.0 degrees, the standard deviation is 3.7 degrees, and the 95th percentile error is 5.8 degrees. 
 
 \begin{figure}
 \centering
@@ -177,9 +177,13 @@ to predict the lateral position of the probe with respect to the spine from the 
 \section{Discussion and Future Work}
 The system design provides a self-contained ultrasound device that can estimate Cobb angle to screen and monitor scoliosis.  One neural network is able to estimate the angle between an ultrasound probe and a vertebral body within 2$^\circ$, while another neural network provides feedback to the user to keep the vertebral bodies centered within the ultrasound field of view.  
 
-For future work...
+For future work, we intend to include information from the guidance network when deciding which frames to take into account. Currently, testing frames where it is not possible to deduce the correct angle due to operator error count against our program. The finished system must be able to discard frames that it cannot interpret, instead of making a bad guess. If too many frames are unusable, the system should demand a re-sweep and refuse to estimate a Cobb Angle.
 
-We aim to operate this software on our planned hand held, self contained ultrasound device. This device, which runs off of an Intel compute stick and windows 10, will enable an extremely simple and fast workflow, where the operator sweeps the device over the patient’s back, following the onscreen arrows to keep centered on the spine, and then reads the cobb angle off of the screen. Because the device runs the same windows version as the computers we are currently running our research on, we do not anticipate any great difficulty in porting to the new platform
+We also anticipate that a more structured neural network architecture could improve accuracy. In particular, it is unusual that post processing  with a median filter improves results, given that a sufficiently complex network should be able to learn to smooth its output. 
+
+Finally, we anticipate that better training data could be obtained by annotating the position and angle of each vertebra in the phantom individually, instead of straightening a spine and then defining the global rotation of each vertebra to be 0. Any bend in the training spine becomes error that the network can never learn. Individual annotation would also allow us to include bent spines in the training data.
+
+We aim to operate this software on our planned hand held, self contained ultrasound device. This device, which runs off of an Intel compute stick and windows 10, will enable an extremely simple and fast workflow, where the operator sweeps the device over the patient’s back, following the onscreen arrows to keep centered on the spine, and then reads the cobb angle off of the screen. Because the device runs the same windows version as the computers we are currently running our research on, we do not anticipate any difficulty in porting to the new platform.
 
 \bibliographystyle{IEEEbib}
 \begin{thebibliography}{}
