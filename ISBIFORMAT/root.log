@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.16)  16 OCT 2017 14:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.16)  16 OCT 2017 15:07
 entering extended mode
 **./root.tex
 (root.tex
@@ -231,30 +231,35 @@ File: NetworkOutput.png Graphic file (type png)
  <use NetworkOutput.png>
 Package pdftex.def Info: NetworkOutput.png used on input line 112.
 (pdftex.def)             Requested size: 231.80298pt x 156.49014pt.
+
+<Guidance.png, id=12, 293.095pt x 266.9975pt>
+File: Guidance.png Graphic file (type png)
+ <use Guidance.png>
+Package pdftex.def Info: Guidance.png used on input line 131.
+(pdftex.def)             Requested size: 234.26163pt x 213.39566pt.
+
+Overfull \hbox (1.56793pt too wide) in paragraph at lines 129--134
+ [][] 
+ []
+
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-
 [2 <./SampleInput.png>]
 
-LaTeX Warning: Citation `C2' on page 3 undefined on input line 134.
+LaTeX Warning: Citation `C2' on page 3 undefined on input line 144.
 
 No file root.bbl.
-[3
-
- <./NetworkOutput.png>] (root.aux)
+[3 <./NetworkOutput.png> <./Guidance.png>] (root.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 2199 strings out of 493323
- 29171 string characters out of 3139066
- 97970 words of memory out of 3000000
- 5715 multiletter control sequences out of 15000+200000
+ 2192 strings out of 493323
+ 29096 string characters out of 3139066
+ 97862 words of memory out of 3000000
+ 5707 multiletter control sequences out of 15000+200000
  17239 words of font info for 40 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,11n,25p,985b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -262,9 +267,9 @@ Here is how much of TeX's memory you used:
 KTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
 mr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (3 pages, 104276 bytes).
+Output written on root.pdf (3 pages, 122426 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
+ 36 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

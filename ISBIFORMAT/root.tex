@@ -124,6 +124,16 @@ Figure 3.
 \section{Automated Operator Guidance}
 We anticipate that in order to function with no operator training, our system will need to guide the operator to keep the spinal column visible in the ultrasound image. To that end, we also trained a network with an identical architecture to the single frame network to predict the lateral position of the probe with respect to the spine from the image data. In inference mode this network runs faster than real time, and is sufficiently accurate to provide feedback to the operator such as "Move Right," "Move Left," or "You are Centered." We intend to display this guidance as arrows on the screen of the final product.
 
+\begin{figure}
+\centering
+\begin{tabular}{cc}
+\centering
+\includegraphics[height=7.5cm,keepaspectratio]{Guidance}
+\end{tabular}
+\caption{A neural network infers whether the operator needs to move the probe to the left or right to stay centered on the spine
+}
+\end{figure}
+
 \section{Discussion and Future Work}
 We aim to operate this software on our planned hand held, self contained ultrasound device. This device, which runs off of an Intel compute stick and windows 10, will enable an extremely simple and fast workflow, where the operator sweeps the device over the patient’s back, following the onscreen arrows to keep centered on the spine, and then reads the cobb angle off of the screen. Because the device runs the same windows version as the computers we are currently running our research on, we do not anticipate any great difficulty in porting to the new platform
 
