@@ -69,7 +69,10 @@ Instead of requiring challenging intermediate steps such as externally tracking 
 
 \subsection{Data}
 \label{ssec:Data}
-The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100, and augmented by flipping over the vertical axis. The data is captured from a single model. However, the testing data is captured in a seperate, subsequent scanning session. Therefore, while there is a risk of the neural network memorizing the 3-D shape of the model, it cannot rely on memorizing specific sequences of frames without failing on the testing data.
+The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100, and augmented by flipping over the vertical axis. 
+
+We are currently working to gather real world data, with IRB approval. For this paper, we attempted to identify overfitting by capturing the test data in a separate ultrasound scanning session from the training data, instead of randomly sampling test data from the training data. 
+
 
 \begin{figure}
 \centering
@@ -83,7 +86,7 @@ The input training data comes from ultrasound image sequences taken of a model s
 
 \subsection{Network Architecture}
 \label{ssec:Network Architecture}
-Our system's neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network has its last layer removed, and the remainder is used to pre-process each frame into a flat vector. Finally, a second fully connected network processes a sliding window of 41 pre-processed frames, stacked into an unstructured vector.
+Our system's neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network has its last layer removed, and the remainder is used to pre-process each frame into a flat vector. Finally, a second fully connected network processes a sliding window of 41 such pre-processed frames, stacked into an unstructured vector.
 
 \begin{table}[ht]
 \caption{Convolutional Network}
