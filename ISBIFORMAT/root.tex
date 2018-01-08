@@ -89,7 +89,9 @@ The methods section describes the image analysis and deep learning methods emplo
 
 Instead of requiring challenging intermediate steps such as externally tracking an ultrasound probe using optical technologies, reconstructing an ultrasound volume from tracked 2D ultrasound images, determining the coordinates of key landmarks, or registering a volume to an atlas, our system directly estimates the angle between the spine and the ultrasound probe using a neural network. In combination with an internal inertial measurement unit (IMU) to report the angle between the ultrasound probe and vertical, our self-contained, hand-held unit bypasses the traditional intermediate steps and focuses on the measures to be made. The Cobb Angle is defined by the extrema of the estimated angles.
 
-The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100, and augmented by flipping over the vertical axis.
+\subsection{Data}
+\label{ssec:Data}
+The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100, and augmented by flipping over the vertical axis. The data is captured from a single model. However, the testing data is captured in a seperate, subsequent scanning session. Therefore, while there is a risk of the neural network memorizing the 3-D shape of the model, it cannot rely on memorizing specific sequences of frames without failing on the testing data.
 
 \begin{figure}
 \centering
@@ -101,7 +103,8 @@ The input training data comes from ultrasound image sequences taken of a model s
 }
 \end{figure}
 
-
+\subsection{Model Architecture}
+\label{ssec:Model Architecture}
 Our system's neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network has its last layer removed, and the remainder is used to pre-process each frame. Finally, a second fully connected network processes a sliding window of 41 pre-processed frames, stacked into an unstructured vector.
 
 \begin{table}[ht]
@@ -189,7 +192,7 @@ We aim to operate this software on our planned hand held, self contained ultraso
 \begin{thebibliography}{}
 %
 \bibitem[1]{Mor06}
-RT. Morrissy, and SL. Weinstein, “Idiopathic Scoliosis in Lovell and Winter’s Pediatric Orthopedics,” Lippincott Williams and Wilkins, Philadelphia, 2006, pp. 694-762.
+RT. Morrissy, and SL. Weinstein, ï¿½Idiopathic Scoliosis in Lovell and Winterï¿½s Pediatric Orthopedics,ï¿½ Lippincott Williams and Wilkins, Philadelphia, 2006, pp. 694-762.
 
 \bibitem[2]{Hae06}
 M. Haefeli, A. Elfering, R. Kilian, K. Min and N. Boos "Nonoperative treatment for adolescent idiopathic scoliosis: a 10- to 60-year follow-up with special reference to health-related quality of life." Spine (Phila Pa 1976), 31(3): 355-66; discussion 367, 2006
@@ -198,13 +201,13 @@ M. Haefeli, A. Elfering, R. Kilian, K. Min and N. Boos "Nonoperative treatment f
 BP. Yawn, RA. Yawn, D. Hodge, M. Kurland, WJ. Shaughnessy, D. Llstrup, and SJ. Jacobsen, "A population based study of school scoliosis screening." JAMA, 282(15): 1427-32, 1999.
 
 \bibitem[4]{Cob48}
-J. Cobb, “Outline for the Study of Scoliosis,” Instructional Course Lectures, Vol. 5, 1948, pp. 261-275. 
+J. Cobb, ï¿½Outline for the Study of Scoliosis,ï¿½ Instructional Course Lectures, Vol. 5, 1948, pp. 261-275. 
 
 \bibitem[5]{Kno14}
 P. Knott, E. Pappo, M. Cameron, JC. deMauroy, et al., "SOSORT 2012 consensus paper: reducing x-ray exposure in pediatric patients with scoliosis" Scoliosis 2014, 9:4
 
 \bibitem[6]{Li10}
-M. Li, C. Cheng, M. Ying, et al. "Applications of 3D Ultrasound in Assisting the Fitting Procedure of Spinal Orthosis to Patients with Adolescent Idiopathic Scoliosis,” Studies in Health Technology and Informatics, Vol. 158, 2010, pp. 34-3
+M. Li, C. Cheng, M. Ying, et al. "Applications of 3D Ultrasound in Assisting the Fitting Procedure of Spinal Orthosis to Patients with Adolescent Idiopathic Scoliosis,ï¿½ Studies in Health Technology and Informatics, Vol. 158, 2010, pp. 34-3
 
 \bibitem[7]{Che13}
 W. Chen, EH. Lou, P. Zhang, LH. Le, D. Hill. "Reliability of assessing the coronal curvature of children with scoliosis by using ultrasound images", Journal of Children's Orthopaedics, 7(6):521-9, Dec 2013
