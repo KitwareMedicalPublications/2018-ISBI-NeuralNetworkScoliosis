@@ -103,9 +103,9 @@ The input training data comes from ultrasound image sequences taken of a model s
 }
 \end{figure}
 
-\subsection{Model Architecture}
-\label{ssec:Model Architecture}
-Our system's neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network has its last layer removed, and the remainder is used to pre-process each frame. Finally, a second fully connected network processes a sliding window of 41 pre-processed frames, stacked into an unstructured vector.
+\subsection{Network Architecture}
+\label{ssec:Network Architecture}
+Our system's neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network has its last layer removed, and the remainder is used to pre-process each frame into a flat vector. Finally, a second fully connected network processes a sliding window of 41 pre-processed frames, stacked into an unstructured vector.
 
 \begin{table}[ht]
 \caption{Convolutional Network}
