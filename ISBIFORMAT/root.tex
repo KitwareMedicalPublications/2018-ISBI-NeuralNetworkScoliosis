@@ -15,7 +15,7 @@
 \title{Scoliosis Screening and Monitoring using Self Contained Ultrasound and Neural Networks}
 %
 \makeatletter
-\def\@name{\emph{Hastings Greer$^{\star}$ \quad Sam Gerber$^{\star}$ \quad Marc Niethammer$^{\dagger}$ \quad Roland Kwitt$^{\circ}$ } \\ \emph{ Matt McCormick$^{\star}$ \quad  Deepak Chittajallu$^{\star}$ \quad Neal Siekierski$^{\star}$ } \\ \emph{ Matthew Oetgen$^{\otimes}$ \quad Kevin Cleary$^{\otimes}$ \quad Stephen Aylward$^{\star}$ } }
+\def\@name{\emph{Hastings Greer$^{\star}$ \qquad Sam Gerber$^{\star}$ \qquad Marc Niethammer$^{\dagger}$ \qquad Roland Kwitt$^{\circ}$ } \\ \emph{ Matt McCormick$^{\star}$ \qquad  Deepak Chittajallu$^{\star}$ \qquad Neal Siekierski$^{\star}$ } \\ \emph{ Matthew Oetgen$^{\otimes}$ \qquad Kevin Cleary$^{\otimes}$ \qquad Stephen Aylward$^{\star}$ } }
 \makeatother
 \address{$^{\star}$Kitware Inc, Carrboro NC 27510, USA \\
   $^{\dagger}$University of North Carolina, Chapel Hill, 27599, USA \\
@@ -65,13 +65,13 @@ The methods section describes the image analysis and deep learning methods emplo
 \section{Methods}
 \label{sec:methods}
 
-Instead of requiring challenging intermediate steps such as externally tracking an ultrasound probe using optical technologies, reconstructing an ultrasound volume from tracked 2D ultrasound images, determining the coordinates of key landmarks, or registering a volume to an atlas, our system directly estimates the angle between the spine and the ultrasound probe using a neural network. In combination with an internal inertial measurement unit (IMU) to report the angle between the ultrasound probe and vertical, our self-contained, hand-held unit bypasses the traditional intermediate steps and focuses on the measures to be made. The Cobb Angle is defined by the extrema of the estimated angles.
+Instead of requiring challenging intermediate steps (such as externally tracking an ultrasound probe using optical technologies, reconstructing an ultrasound volume from tracked 2D ultrasound images, determining the coordinates of key landmarks, or registering a volume to an atlas), our system directly estimates the angle between the spine and the ultrasound probe using a neural network. In combination with an internal inertial measurement unit (IMU) to report the angle between the ultrasound probe and vertical, our self-contained, hand-held unit bypasses the traditional intermediate steps and focuses on the measures to be made. The Cobb Angle is defined by the extrema of the estimated angles.
 
 \subsection{Data}
 \label{ssec:Data}
-The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output training data for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100, and augmented by flipping over the vertical axis. 
+The input training data comes from ultrasound image sequences taken of a model spine immersed in water. The ideal output for that input training data is the orientation of the ultrasound probe along each sequence, as measured using an optical tracker.  All training data is accomplished with the model spine straightened, which is sufficient since the neural network only needs to estimate the angle between the ultrasound probe and the underlying vertebrae. The probe is swept up and down the spine while simultaneously being rotated along the coronal axis, to obtain 170,000 training images. The ultrasound data is passed to the neural network as B-mode images that have been scaled down to 100x100, and augmented by flipping across the vertical midline. 
 
-We are currently working to gather real world data, with IRB approval. For this paper, we attempted to identify overfitting by capturing the test data in a separate ultrasound scanning session from the training data, instead of randomly sampling test data from the training data. 
+We are currently working to gather real world data, with IRB approval. For this paper, we attempted to identify overfitting by capturing the test data in a separate ultrasound scanning session from the training data, instead of randomly sampling the testing data.
 
 
 \begin{figure}
@@ -86,7 +86,7 @@ We are currently working to gather real world data, with IRB approval. For this 
 
 \subsection{Network Architecture}
 \label{ssec:Network Architecture}
-Our system's neural network consists of two parts. A convolutional network modeled after VGG processes each frame, and is trained to predict the angle given a single frame. Then, this network has its last layer removed, and the remainder is used to pre-process each frame into a flat vector. Finally, a second fully connected network processes a sliding window of 41 such pre-processed frames, stacked into an unstructured vector.
+Our system's neural network consists of two parts. A convolutional network, modeled after VGG, processes each frame and is trained to predict a vertebral angle given a single frame. Then, this network has its last layer removed, and the exposed layer is used to represent each frame as a flat vector. Finally, a second fully connected network processes a sliding window of 41 such vectorized frames simultaneously to estimate the angle at the center of the window. Both networks are trained using Adam optimization.
 
 \begin{table}[ht]
 \caption{Convolutional Network}
@@ -94,17 +94,17 @@ Our system's neural network consists of two parts. A convolutional network model
 \hline \\
 Type & \# Filters & Stride & Activation & Rate \\
 \hline
-Convolution & 32 & 3x3 & Relu \\
+Convolution & 32 & 3x3 & ReLU \\
 Max Pooling &    & 2x2 &      \\
-Convolution & 64 & 3x3 & Relu \\
+Convolution & 64 & 3x3 & ReLU \\
 Max Pooling &    & 2x2 &      \\
-Convolution & 64 & 3x3 & Relu \\
+Convolution & 64 & 3x3 & ReLU \\
 Max Pooling &    & 2x2 &      \\
-Convolution &128 & 3x3 & Relu \\
-Convolution &256 & 3x3 & Relu \\
-Fully Connected & 512 & & Relu \\
+Convolution &128 & 3x3 & ReLU \\
+Convolution &256 & 3x3 & ReLU \\
+Fully Connected & 512 & & ReLU \\
 Dropout & & & & 0.5 \\
-Fully Connected & 512 & & Relu \\
+Fully Connected & 512 & & ReLU \\
 Dropout & & & & 0.5 \\
 Fully Connected & 1 & & tanh \\
 \end{tabular}
@@ -116,8 +116,8 @@ Fully Connected & 1 & & tanh \\
 \hline \\
 Type & \# Filters & Activation \\
 \hline
-Fully Connected & 1024  & Relu \\
-Fully Connected & 1024  & Relu \\
+Fully Connected & 1024  & ReLU \\
+Fully Connected & 1024  & ReLU \\
 Fully Connected & 1 &  tanh \\
 \end{tabular}
 \end{table}
@@ -126,7 +126,7 @@ Once the network has been trained, the vertebrae-to-probe angle given by the neu
 
 \section{Experiment and Results}
 
-As a preliminary validation, we tested our network’s ability to deduce the angle of the ultrasound probe on images of a straight spine acquired while rotating the ultrasound probe as it moved down the spine.  This testing data was captured after (i.e., completely separate from) the training data and consisted of 10,000 images. Our results on this data are shown in fig. 2. For the smoothed data, the mean error is 2.0 degrees, the standard deviation is 3.7 degrees, and the 95th percentile error is 5.8 degrees. 
+As a preliminary validation, we tested our network’s ability to deduce the angle of the ultrasound probe on images of a straight spine acquired while rotating the ultrasound probe as it moved down the spine.  This testing data was captured after (i.e., completely separate from) the training data and consisted of 10,000 images. Sample results on this data are shown in Fig. 2. For the smoothed data, the mean error is 2.0 degrees, the standard deviation is 3.7 degrees, and the 95th percentile error is 5.8 degrees. 
 
 \begin{figure}
 \centering
